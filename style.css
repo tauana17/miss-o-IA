@@ -1,8 +1,8 @@
 :root{
-    --cor-de-fundo:#01080e;
-    --cor-principal:#0b0d20;
-    --cor-secundaria:#212333;
-    --cor-destaque:#2bdefd;
+    --cor-de-fundo:#7047a0;
+    --cor-principal:#936cff;
+    --cor-secundaria:#cf94ff;
+    --cor-destaque:#221c80;
     --cor-texto:#d7f9ff;
 }
 
@@ -35,3 +35,12 @@ button{
     transition: background-color 0,3s;
 }
 
+button:hover{
+    background-color: var(--cor-destaque);
+    color: var(--cor-principal);
+
+}
+
+.caixa-perguntas{
+    padding-bottom: 10px;
+}
