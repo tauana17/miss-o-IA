@@ -7,15 +7,33 @@ const TextoResultado = document.querySelector(".texto-resultado");
 const perguntas = [
     {
         enunciado: "pergunta 1",
-        alternativas: ["alternativa 1", "alternativa 2"]
+        alternativas: [
+            { texto:"alternativa 1",
+            alternativas: "afirmacao 1"},
+
+    { texto:"alternativa 2",
+    alternativas:"afirmacao 2",} ]
     },
+     
     {
         enunciado: "pergunta 2",
-        alternativas: ["alternativa 1", "alternativa 2"]
+        alternativas: [
+            { texto:"alternativa 1",
+            alternativas: "afirmacao 1"},
+
+    { texto:"alternativa 2",
+    alternativas:"afirmacao 2",} ]
     },
+
     {
         enunciado: "pergunta 3",
-        alternativas: ["alternativa 1", "alternativa 2"]
+        alternativas: [
+            { texto:"alternativa 1",
+            alternativas: "afirmacao 1"},
+
+    { texto:"alternativa 2",
+    alternativas:"afirmacao 2",} ]
+
     }
 ]
 
@@ -28,10 +46,15 @@ function mostraPergunta() {
     caixaAlternativas.textContent = "";
     mostraAlternativa();
 }
+
 function mostraAlternativas(){
     for(const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa;
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener("click",function(){
+            atual++;
+            mostraPergunta();
+        });
         caixaAlternativas.appendChild(botaoAlternativas);
     }
 
