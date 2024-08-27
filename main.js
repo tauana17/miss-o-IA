@@ -18,19 +18,19 @@ const perguntas = [
         enunciado: "2- O que você acha sobre jogos online com micro transações abusivas?",
         alternativas:[
             { texto: "a- Gosto, porque se eu comprar um determinado pacote eu fico mais forte dentro do jogo", 
-            afirmacao: "Pessoas com vicio comprariam compulsivamente sem olhar o preço."},
+            afirmacao: " Pessoas com vicio comprariam compulsivamente sem olhar o preço."},
     
     { texto: "b- Acho ruim, pois alguns jogos os itens pagos deixam os jogadores mais fortes",
-      afirmacao: "Entende que pode ser prejudicial pois pode desfavorecer alguns jogadores e “quebrar” com a experiencia do jogo" } ]
+      afirmacao: " Entende que pode ser prejudicial pois pode desfavorecer alguns jogadores e “quebrar” com a experiencia do jogo." } ]
     },
     {
         enunciado: "3- Sabemos que no mercado de jogos, existe um mercado interno criado para favorecer jogadores com itens pagos com dinheiro real, qual sua opinião sobre essa prática?",
         alternativas:[
             { texto: "a- Não gosto, pois as pessoas menos favorecidas financeiramente não podem usufruir de tais itens mesmo tendo habilidades para possuírem através de conquistas dentro do jogo, em vez de precisarem de dinheiro real.", 
-            afirmacao: "A pessoa acha injusto ter que pagar por algo que deveria ser conquistado com habilidades."},
+            afirmacao: " A pessoa acha injusto ter que pagar por algo que deveria ser conquistado com habilidades."},
     
     { texto: "b- Eu concordo, pois se a pessoa quer investir no jogo de forma consciente e dentro das regras do jogo ela pode, afinal essa opção existe para todos os jogadores e o jogo precisa de lucro para continuar rodando como qualquer meio de lazer.",
-      afirmacao: "A pessoa concorda com a prática pois cada pessoa é responsável pela sua escolher de gastar ou não no jogo." } ]
+      afirmacao:  " A pessoa concorda com a prática pois cada pessoa é responsável pela sua escolha de gastar ou não no jogo." } ]
     }
    
    
@@ -42,6 +42,12 @@ let perguntaAtual;
 let historiafinal="";
 
 function mostraPergunta(){
+if(atual>= perguntas.length){
+    mostraResultado();
+    return;
+}
+
+
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.textContent="";
@@ -58,10 +64,16 @@ function mostraAlternativas(){
 }
 
 function respostaSelecionada(opcaoSelecionada){
-    const afirmacao = opcaoSelecionada.afirmacao;
-    historiafinal = afirmacao;
+    const afirmacoes = opcaoSelecionada.afirmacao;
+    historiafinal += afirmacoes + "";
     atual++;
     mostraPergunta();
+}
+
+function mostraResultado(){
+    caixaPerguntas.textContent = "Alguma Coisa";
+    textoResultado.textContent = historiafinal;
+    caixaAlternativas.textContent = "";
 }
 
 mostraPergunta();
